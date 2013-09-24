@@ -81,6 +81,7 @@ module Vfs
         else
           attrs[:created_at] = Time.new(time_or_year.to_i, month, day.to_i)
         end
+        attrs[:size] = size.to_i
         attrs[:updated_at] = attrs[:created_at]
         attrs[:file] = (type == 'file')
         attrs[:dir] = (type != 'file')
