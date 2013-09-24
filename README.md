@@ -21,16 +21,18 @@ Or install it yourself as:
 ``` ruby 
 require 'vfs/ftp'
 
-system = Vfs::FTP.new host: 'example.com', port: 2121,
+ftp = Vfs::FTP.new host: 'example.com', port: 2121,
   username: 'me', password: 'secret'
 
-system.write '/motd.txt' do |stream|
+ftp.write '/motd.txt' do |stream|
   stream.write 'test test'
 end
 
-puts system.read '/motd.txt'
-
+puts ftp.read '/motd.txt'
 #=> test test
+
+ftp.delete '/motd.txt'
+
 ```
 
 ## Contributing
