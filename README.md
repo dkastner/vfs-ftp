@@ -1,6 +1,6 @@
 # Vfs::Ftp
 
-TODO: Write a gem description
+This is an FTP driver for the [vfs gem][https://github.com/alexeypetrushin/vfs].
 
 ## Installation
 
@@ -18,7 +18,20 @@ Or install it yourself as:
 
 ## Usage
 
-TODO: Write usage instructions here
+``` ruby 
+require 'vfs/ftp'
+
+system = Vfs::FTP.new host: 'example.com', port: 2121,
+  username: 'me', password: 'secret'
+
+system.write '/motd.txt' do |stream|
+  stream.write 'test test'
+end
+
+puts system.read '/motd.txt'
+
+#=> test test
+```
 
 ## Contributing
 
